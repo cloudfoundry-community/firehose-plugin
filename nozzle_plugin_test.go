@@ -6,9 +6,9 @@ import (
 
 	"code.cloudfoundry.org/cli/plugin/models"
 	"code.cloudfoundry.org/cli/plugin/pluginfakes"
+	io_helpers "code.cloudfoundry.org/cli/util/testhelpers/io"
 	. "github.com/cloudfoundry-community/firehose-plugin"
 	"github.com/cloudfoundry-community/firehose-plugin/testhelpers"
-	io_helpers "github.com/cloudfoundry/cli/util/testhelpers/io"
 
 	"github.com/cloudfoundry/sonde-go/events"
 	. "github.com/onsi/ginkgo"
