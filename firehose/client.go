@@ -102,8 +102,6 @@ func (c *Client) promptFilterType() (string, error) {
 
 	filter := c.ui.Ask(`Please enter one of the following choices:
 	  hit 'enter' for all messages
-	  2 for HttpStart
-	  3 for HttpStop
 	  4 for HttpStartStop
 	  5 for LogMessage
 	  6 for ValueMetric
