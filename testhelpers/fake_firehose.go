@@ -182,7 +182,10 @@ func (f *FakeFirehose) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 
 	f.lastAuthorization = r.Header.Get("Authorization")
 	f.requested = true
+
 	f.subscriptionID = strings.Split(r.URL.String(), "/")[2]
+	f.subscriptionID = strings.TrimSuffix(f.subscriptionID, "?")
+
 	if f.lastAuthorization != f.validToken {
 		log.Printf("Bad token passed to firehose: %s", f.lastAuthorization)
 		rw.WriteHeader(403)
