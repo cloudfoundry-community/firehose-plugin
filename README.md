@@ -135,10 +135,8 @@ In order to create a new release, follow these steps
 1. On github, create new release based on new tag [here](https://github.com/cloudfoundry-community/firehose-plugin/releases/new)
 1. Upload the three binaries from the ./bin folders to the release (Linux, OSX and Win64)
 1. Fork [this repo](https://github.com/cloudfoundry-incubator/cli-plugin-repo) and clone it locally
-1. Edit the repo-index.yml
-  ```
-  vi repo-index.yml
-  ```
-  to override the existing section about the firehose plugin with the text previously copied in Step 2.
+1. Edit the `repo-index.yml` to override the existing section about the firehose plugin with the text previously copied in Step 2.
+1. Run `go run sort/main.go repo-index.yml` in the cli-plugin-repo to alphabetize the properties
+1. Run `BINARY_VALIDATION=true go test`
 1. Push the change to your fork
 1. Create a PR against the [original repo](https://github.com/cloudfoundry-incubator/cli-plugin-repo/compare)

@@ -26,17 +26,17 @@ MAC_FILENAME="nozzle-plugin-darwin"
 WIN_FILENAME="nozzle-plugin.exe"
 
 GOOS=linux GOARCH=amd64 go build -o $LINUX_FILENAME
-LINUX64_SHA1=`cat $LINUX_FILENAME | openssl sha1`
+LINUX64_SHA1=`shasum -a 1 $LINUX_FILENAME | awk '{print $1}'`
 mkdir -p bin/linux64
 mv $LINUX_FILENAME bin/linux64
 
 GOOS=darwin GOARCH=amd64 go build -o $MAC_FILENAME
-OSX_SHA1=`cat $MAC_FILENAME | openssl sha1`
+OSX_SHA1=`shasum -a 1 $MAC_FILENAME | awk '{print $1}'`
 mkdir -p bin/osx
 mv $MAC_FILENAME bin/osx
 
 GOOS=windows GOARCH=amd64 go build -o $WIN_FILENAME
-WIN64_SHA1=`cat $WIN_FILENAME | openssl sha1`
+WIN64_SHA1=`shasum -a 1 $WIN_FILENAME | awk '{print $1}'`
 mkdir -p bin/win64
 mv $WIN_FILENAME bin/win64
 
